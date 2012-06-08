@@ -90,6 +90,12 @@ class	Curl
     $this->_delay = $delay;
   }
 
+  public function setCookieFile($file)
+  {
+    curl_setopt($this->_ch, CURLOPT_COOKIEFILE, $file);
+    curl_setopt($this->_ch, CURLOPT_COOKIEJAR, $file);
+  }
+
   /*****************************************************************************
    **		Requests delay						      **
    ****************************************************************************/
