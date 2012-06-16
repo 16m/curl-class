@@ -17,7 +17,7 @@ try
   // we close the file
   $curl->unsetFile();
 }
-catch
+catch (Exception $e)
 {
   echo 'Error : '.$e->getMessage().PHP_EOL;
 }

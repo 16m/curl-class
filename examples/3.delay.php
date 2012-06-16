@@ -20,7 +20,7 @@ try
       echo 'Request finished at '.date('H:i:s').PHP_EOL;
     }
 }
-catch
+catch (Exception $e)
 {
   echo 'Error : '.$e->getMessage().PHP_EOL;
 }
