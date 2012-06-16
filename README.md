@@ -1,4 +1,4 @@
 curl-class
 ==========
 
-An object oriented layer to curl functions in PHP
+An object oriented layer to cURL functions in PHP
