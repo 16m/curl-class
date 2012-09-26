@@ -49,7 +49,7 @@ class	Curl
    * @retval string
    *  the content issued by the HTTP GET request
    * @exception Exception the request failed
-   * @example examples/1.basic.php
+   * @example 1.basic.php
    */
   public function &get($url)
   {
@@ -66,7 +66,7 @@ class	Curl
    * @retval string
    *  the content issued by the HTTP POST request
    * @exception Exception the request failed
-   * @example examples/3.post.php
+   * @example 4.post.php
    */
   public function &post($url, $postfields)
   {
@@ -86,7 +86,7 @@ class	Curl
    * @param string $filename
    *  the filename of the file to write
    * @exception Exception the file could not be open
-   * @example examples/2.file.php
+   * @example 2.file.php
    */
   public function setFile($filename)
   {
@@ -100,7 +100,7 @@ class	Curl
    * @param bool $critical_error
    *  if true, the function will consider that a failure on close is critical
    * @exception Exception the file handle could not be closed\
-   * @example examples/2.file.php
+   * @example 2.file.php
    */
   public function unsetFile($critical_error = false)
   {
@@ -123,7 +123,7 @@ class	Curl
    * @param float $delay
    *  the number of seconds to wait between each download
    * @throw Exception the specified delay is not numeric
-   * @example examples/3.delay.php
+   * @example 3.delay.php
    */
   public function setDelay($delay)
   {
