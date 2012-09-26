@@ -1,21 +1,21 @@
 #!/usr/bin/php
 <?php
 
-require_once '../curl.class.php';
+require_once '../Curl.php';
 
 try
 {
   // instantiation of the curl class
-  $curl = new Curl();
+  $Curl = new Curl();
 
-  // we define a file where to write results
-  $curl->setFile('index.html');
+  // we set a file where the output will be redirected
+  $Curl->setFile('index.html');
 
-  // we request a page. The result will be written in the file
-  $curl->get('http://www.google.fr');
+  // we request a page. The output will be redirected in the file
+  $Curl->get('http://www.google.fr');
 
-  // we close the file
-  $curl->unsetFile();
+  // we explictly close the file
+  $Curl->unsetFile();
 }
 catch (Exception $e)
 {

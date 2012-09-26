@@ -1,12 +1,12 @@
 #!/usr/bin/php
 <?php
 
-require_once '../curl.class.php';
+require_once '../Curl.php';
 
 try
 {
   // instation of the curl class
-  $curl = new Curl();
+  $Curl = new Curl();
 
   $postfields = array(
 		      'info1' => 'value1',
@@ -15,9 +15,9 @@ try
 		      'info4' => 'value4',
 		      'info5' => 'value5'
 		      );
-  $curl->setFile('result.html');
-  $curl->post('http://www.htmlcodetutorial.com/cgi-bin/mycgi.pl', $postfields);
-  $curl->unsetFile();
+  $Curl->setFile('result.html');
+  $Curl->post('http://www.htmlcodetutorial.com/cgi-bin/mycgi.pl', $postfields);
+  $Curl->unsetFile();
 }
 catch (Exception $e)
 {

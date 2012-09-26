@@ -1,15 +1,15 @@
 #!/usr/bin/php
 <?php
 
-require_once '../curl.class.php';
+require_once '../Curl.php';
 
 try
 {
   // instantiation of the curl class
-  $curl = new Curl();
+  $Curl = new Curl();
 
   // we request a page and we get the result in $ret
-  $ret = $curl->get('http://www.google.fr');
+  $ret = $Curl->get('http://www.google.fr');
 
   echo $ret;
 }
