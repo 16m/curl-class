@@ -9,8 +9,8 @@
  *
  * Initialising and configuring a cURL handle in PHP can sometimes be a bit
  * tricky or time consuming, mainly when we just need to retrieve a simple page.
- * The goal of the Curl class is to abstracts the configuration and error
- * handling, and to offers the user simple methods to do the basic tasks. The
+ * The goal of the Curl class is to abstract the configuration and error
+ * handling, and to offer the user simple methods to do the basic tasks. The
  * last version is always at https://github.com/skorpios/curl-class
  */
 class	Curl
@@ -48,6 +48,8 @@ class	Curl
    *  the url to get the content from
    * @retval string
    *  the content issued by the HTTP GET request
+   * @exception Exception the request failed
+   * @example examples/1.basic.php
    */
   public function &get($url)
   {
@@ -59,15 +61,21 @@ class	Curl
    *
    * @param string $url
    *  the url to get the content from
-   * @param array $postFields
+   * @param array $postfields
    *  an array containing the data to be posted
    * @retval string
    *  the content issued by the HTTP POST request
+   * @exception Exception the request failed
+   * @example examples/3.post.php
    */
-  public function &post($url, $postFields)
+  public function &post($url, $postfields)
   {
+    $post = '';
+    foreach ($postfields as $parameter => $value)
+      $post .= $parameter.'='.$value.'&';
+    $post = substr($post, 0, -1);
     curl_setopt($this->_ch, CURLOPT_POST, true);
-    curl_setopt($this->_ch, CURLOPT_POSTFIELDS, $postFields);
+    curl_setopt($this->_ch, CURLOPT_POSTFIELDS, $post);
     return $this->exec($url);
   }
 
@@ -78,6 +86,7 @@ class	Curl
    * @param string $filename
    *  the filename of the file to write
    * @exception Exception the file could not be open
+   * @example examples/2.file.php
    */
   public function setFile($filename)
   {
@@ -90,7 +99,8 @@ class	Curl
    *
    * @param bool $critical_error
    *  if true, the function will consider that a failure on close is critical
-   * @exception Exception the file handle could not be closed
+   * @exception Exception the file handle could not be closed\
+   * @example examples/2.file.php
    */
   public function unsetFile($critical_error = false)
   {
@@ -113,6 +123,7 @@ class	Curl
    * @param float $delay
    *  the number of seconds to wait between each download
    * @throw Exception the specified delay is not numeric
+   * @example examples/3.delay.php
    */
   public function setDelay($delay)
   {
