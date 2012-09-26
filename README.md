@@ -6,8 +6,8 @@ An object-oriented layer to PHP curl functions.
 Introduction
 ------------
 
-Initialising and configuring a cURL handle in PHP can sometimes be a bit tricky
-or time consuming, mainly when we just need to retrieve a simple page. The
+Initialising and configuring a cURL handle in PHP can be sometimes a bit tricky
+or time consuming, especially when we just need to retrieve a simple page. The
 goal of the Curl class is to abstract the configuration and error handling,
 and to offer the user simple methods to do the basic tasks.
 
